@@ -5,6 +5,11 @@
  */
 package djtu.yg.dsj;
 
+import djtu.yg.dsj.ch10.InsertSort;
+import djtu.yg.dsj.ch10.Record;
+import djtu.yg.dsj.ch10.RecordComparator;
+import djtu.yg.dsj.ch10.Sorter;
+
 /**
  *
  * @author Yang.G
@@ -16,6 +21,13 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Sorter<Record> sorter = new Sorter<>();
+        sorter.setComparator(new RecordComparator());
+        sorter.setSortStrategy(new InsertSort<>());
+        
+        Record[] records = Record.generateSortList(20, 100);
+        Record.printRecords(records);
+        sorter.executeSort(records);
+        Record.printRecords(records);
     }
-    
 }
