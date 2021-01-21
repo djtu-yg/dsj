@@ -8,7 +8,7 @@ package djtu.yg.dsj.ch10;
 import java.util.Comparator;
 
 /**
- *
+ * ÷±Ω”≤Â»Î≈≈–Ú
  * @author Yang.G
  * @param <T>
  */

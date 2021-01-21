@@ -5,9 +5,11 @@
  */
 package djtu.yg.dsj;
 
+import djtu.yg.dsj.ch10.BubbleSort;
 import djtu.yg.dsj.ch10.InsertSort;
 import djtu.yg.dsj.ch10.Record;
 import djtu.yg.dsj.ch10.RecordComparator;
+import djtu.yg.dsj.ch10.ShellSort;
 import djtu.yg.dsj.ch10.Sorter;
 
 /**
@@ -20,14 +22,26 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        Sorter<Record> sorter = new Sorter<>();
-        sorter.setComparator(new RecordComparator());
-        sorter.setSortStrategy(new InsertSort<>());
-        
+        //生成随机排序表
         Record[] records = Record.generateSortList(20, 100);
         Record.printRecords(records);
+        
+        // 创建排序器
+        Sorter<Record> sorter = new Sorter<>();
+        sorter.setComparator(new RecordComparator());
+        
+        //设置排序算法、执行排序
+        sorter.setSortStrategy(new ShellSort<>());        
         sorter.executeSort(records);
         Record.printRecords(records);
+        
+        sorter.setSortStrategy(new InsertSort<>());        
+        sorter.executeSort(records);
+        Record.printRecords(records);
+        
+        sorter.setSortStrategy(new BubbleSort<>());        
+        sorter.executeSort(records);
+        Record.printRecords(records);
+
     }
 }
