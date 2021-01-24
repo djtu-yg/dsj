@@ -16,7 +16,19 @@ public class SelectSort<T> implements ISort<T> {
 
     @Override
     public void sort(T[] records, Comparator<T> comparator) {
-        
+        for(int i=0; i<records.length-1; i++) {
+            int minIndex = i;
+            for(int j=i+1; j<records.length; j++) {
+                if(comparator.compare(records[minIndex], records[j]) > 0) {
+                    minIndex = j;
+                }
+            }
+            if(minIndex != i) {
+                T obj = records[i];
+                records[i] = records[minIndex];
+                records[minIndex] = obj;
+            }
+        }
     }
     
 }

@@ -6,9 +6,12 @@
 package djtu.yg.dsj;
 
 import djtu.yg.dsj.ch10.BubbleSort;
+import djtu.yg.dsj.ch10.HeapSort;
 import djtu.yg.dsj.ch10.InsertSort;
+import djtu.yg.dsj.ch10.QuickSort;
 import djtu.yg.dsj.ch10.Record;
 import djtu.yg.dsj.ch10.RecordComparator;
+import djtu.yg.dsj.ch10.SelectSort;
 import djtu.yg.dsj.ch10.ShellSort;
 import djtu.yg.dsj.ch10.Sorter;
 
@@ -40,6 +43,18 @@ public class Main {
         Record.printRecords(records);
         
         sorter.setSortStrategy(new BubbleSort<>());        
+        sorter.executeSort(records);
+        Record.printRecords(records);
+        
+        sorter.setSortStrategy(new QuickSort<>());        
+        sorter.executeSort(records);
+        Record.printRecords(records);
+        
+        sorter.setSortStrategy(new SelectSort<>());        
+        sorter.executeSort(records);
+        Record.printRecords(records);
+        
+        sorter.setSortStrategy(new HeapSort<>());        
         sorter.executeSort(records);
         Record.printRecords(records);
 
